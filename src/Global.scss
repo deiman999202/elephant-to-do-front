@@ -1,0 +1,19 @@
+$main-color: #da4b0d;
+
+$unit-background-transparent: rgba($color: #ffc2a8, $alpha: 0.5);
+
+$unit-background: #ffc2a8;
+
+@mixin loader-container {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.834)
+        url("https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif") center
+        no-repeat;
+    z-index: 1;
+}
+
+// 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 - Google secret

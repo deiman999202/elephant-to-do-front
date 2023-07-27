@@ -1,0 +1,93 @@
+@use '../../Global.scss';
+
+.todo-column{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    width: 100%;
+    .list-of-todos{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        h3{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            img{
+                width: 1.5rem;
+                cursor: pointer;
+            }
+        }
+        .todo-set{
+            width: 100%;
+            height: 30vh;
+            overflow: auto;
+            span{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                margin-bottom: 1rem;
+                gap: 10px;
+                background-color: Global.$unit-background-transparent;
+                border-radius: 1rem;
+                padding: 1rem;
+                .todo-dashboard{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-wrap: wrap-reverse;
+                    max-width: 100%;
+                    .todo-info{
+                        display: flex;
+                        gap: 10px;
+                        align-items: center;
+                        max-width: 100%;
+                        .checkbox{
+                            width: 25px;
+                            cursor: pointer;
+                        }
+                        p{
+                            max-width: 90%;
+                            overflow-wrap: break-word;
+                        }
+                    }
+                    .todo-tools{
+                        display: flex;
+                        visibility: hidden;
+                        opacity: 0;
+                        gap: 1rem;
+                        margin-left: auto;
+                        transition: all 0.5s ease-in-out;
+                        img{
+                            width: 1.2rem;
+                            cursor: pointer;
+                        }
+                    }
+                    .description{
+                        margin-right: auto;
+                    }
+                }
+            }
+        }
+        
+        span:hover{
+                .todo-tools{
+                    visibility: visible !important;
+                    opacity: 1 !important;
+                }   
+            }
+        .todo-adding{
+            justify-self: center;
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .todo-tools{
+        visibility: visible !important;
+        opacity: 1 !important;
+    }   
+}

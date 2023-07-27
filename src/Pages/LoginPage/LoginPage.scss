@@ -1,0 +1,36 @@
+@use '../../Global.scss';
+
+.loader-container{
+    @include Global.loader-container
+}
+
+.login{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+    form{
+        max-width: 500px;
+            .input-name{
+                position: absolute;
+                left: 20px;
+            }
+    
+            input:focus{
+                outline: none;
+            }
+    
+        }        
+        button{
+            display: block;
+            width: 100%;
+            
+        }
+    }
+
+    @media screen and (max-width: 1024px) {
+        .login{
+            display: flex;
+            justify-content: center;
+        }
+    }

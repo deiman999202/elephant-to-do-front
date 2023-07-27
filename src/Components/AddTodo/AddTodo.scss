@@ -1,0 +1,41 @@
+@use "../../Global.scss";
+
+.addTodo{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+textarea{
+    display: block;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+form{
+    .buttons{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+.form-bg{
+    position: fixed;
+    top: 25%;
+    left: 50%;
+    transform: translateY(-50%);
+    transform: translateX(-50%);
+    width: 50vw;
+    height: 50vh;
+    background-color: Global.$unit-background;
+    opacity: 0.95;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .add-todo-form{
+        opacity: 1;
+    }
+}

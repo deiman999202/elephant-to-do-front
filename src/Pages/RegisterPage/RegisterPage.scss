@@ -1,0 +1,41 @@
+.register{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+    form{
+        max-width: 500px;
+        input{
+            display: block;
+            border: 1px solid rgb(165, 159, 159);
+            width: 100%;
+            margin: 10px 0;
+            padding: 30px 20px 5px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .input-name{
+            position: absolute;
+            left: 20px;
+        }
+
+        input:focus{
+            outline: none;
+        }
+
+        button{
+            display: block;
+            width: 100%;
+
+        }
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+    .register{
+        display: flex;
+        justify-content: center;
+    }
+}

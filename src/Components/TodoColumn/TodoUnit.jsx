@@ -16,7 +16,7 @@ const TodoUnit = ({todo, changeChecked, isChecked, noDescription, username, setS
   const {setTodoArr} = useContext(TodoContext)
 
   async function deleteTodo(id){
-    await fetch('https://elephant-to-do-back.onrender.com/todo', {
+    await fetch('https://elephant-to-do-back2.onrender.com/todo', {
       method: "DELETE",
       body: JSON.stringify({id}),
       headers: {'Content-Type': 'application/json'}
@@ -26,7 +26,7 @@ const TodoUnit = ({todo, changeChecked, isChecked, noDescription, username, setS
 
   async function editTodo(e){
     e.preventDefault()
-    await fetch('http://localhost:5000/todo', {
+    await fetch('https://elephant-to-do-back2.onrender.com/todo', {
       method: 'PUT',
       body: JSON.stringify({id: todo._id, title, description, changeState: false}),
       headers: {'Content-Type': 'application/json'}

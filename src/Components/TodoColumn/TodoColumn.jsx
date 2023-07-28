@@ -14,7 +14,7 @@ const TodoColumn = ({username, isLong}) => {
   const [showUndoneTodo, setShowUndoneTodo] = useState(false)
 
   async function changeChecked({_id, title, description}){
-    await fetch('http://localhost:5000/todo', {
+    await fetch('https://elephant-to-do-back.onrender.com/todo', {
       method: 'PUT',
       body: JSON.stringify({id: _id, title, description, changeState: true}),
       headers: {'Content-Type': 'application/json'}

@@ -13,10 +13,10 @@ const TodoUnit = ({todo, changeChecked, isChecked, noDescription, username, setS
   const [title, setTitle] = useState(todo.title)
   const [description, setDescription] = useState(todo.description)
   const [showDesc, setShowDesc] = useState(false)
-  const {todoArr, setTodoArr} = useContext(TodoContext)
+  const {setTodoArr} = useContext(TodoContext)
 
   async function deleteTodo(id){
-    await fetch('http://localhost:5000/todo', {
+    await fetch('https://elephant-to-do-back.onrender.com/todo', {
       method: "DELETE",
       body: JSON.stringify({id}),
       headers: {'Content-Type': 'application/json'}

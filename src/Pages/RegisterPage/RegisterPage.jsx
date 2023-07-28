@@ -15,7 +15,7 @@ const RegisterPage = () => {
 
   async function signup(e){
     e.preventDefault()
-    await fetch('http://localhost:5000/signup', {
+    await fetch('https://elephant-to-do-back.onrender.com/signup', {
       method: 'POST',
       body: JSON.stringify({email, password, username}),
       headers: {'Content-Type': 'application/json'}

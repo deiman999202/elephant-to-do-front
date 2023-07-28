@@ -15,7 +15,7 @@ const AddTodo = ({username, setShowEditCloseAdd}) => {
 
     async function addTodo(e){
         e.preventDefault()
-        await fetch('http://localhost:5000/todo', {
+        await fetch('https://elephant-to-do-back.onrender.com/todo', {
           method: 'POST',
           body: JSON.stringify({title, description, author: username}),
           headers: {'Content-Type': 'application/json'}

@@ -1,5 +1,5 @@
 export async function getTodo(setTodoArr, username){
-    await fetch('http://localhost:5000/authtodo', {
+    await fetch('https://elephant-to-do-back.onrender.com/authtodo', {
       method: 'POST',
       body: JSON.stringify({username}),
       headers: {'Content-Type': 'application/json'}
@@ -12,7 +12,7 @@ export async function getTodo(setTodoArr, username){
   }
 
   export async function getUser(setUserInfo){
-        await fetch('http://localhost:5000/profile', {
+        await fetch('https://elephant-to-do-back.onrender.com/profile', {
         credentials: 'include'
       }).then(response => {
         response.json().then(info => {
@@ -23,7 +23,7 @@ export async function getTodo(setTodoArr, username){
 }
 
 export async function fetchLogout(){
-  await fetch('http://localhost:5000/logout', {
+  await fetch('https://elephant-to-do-back.onrender.com/logout', {
     method: 'POST',
     credentials: "include"
   })

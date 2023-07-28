@@ -32,9 +32,6 @@ const Header = () => {
     setLoading(false)
   }
 
-  function addTodo(){
-    
-  }
 
   const username = userInfo?.username
 

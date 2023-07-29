@@ -2,6 +2,7 @@ import {useState, useContext} from 'react'
 import { getTodo } from '../../frontBackEndFunctions'
 import AddTodoForm from '../AddTodo/AddTodoForm'
 import { TodoContext } from '../../TodoContext'
+import {baseUrl} from '../../frontBackEndFunctions'
 import unChecked from '../../images/checkbox-unchecked-svgrepo-com.png'
 import checked from '../../images/checkbox-check-svgrepo-com.png'
 import deleteIcon from '../../images/delete-1487-svgrepo-com.png'
@@ -16,7 +17,7 @@ const TodoUnit = ({todo, changeChecked, isChecked, noDescription, username, setS
   const {setTodoArr} = useContext(TodoContext)
 
   async function deleteTodo(id){
-    await fetch('https://elephant-to-do-back2.onrender.com/todo', {
+    await fetch(baseUrl + '/todo', {
       method: "DELETE",
       body: JSON.stringify({id}),
       headers: {'Content-Type': 'application/json'}
@@ -26,7 +27,7 @@ const TodoUnit = ({todo, changeChecked, isChecked, noDescription, username, setS
 
   async function editTodo(e){
     e.preventDefault()
-    await fetch('https://elephant-to-do-back2.onrender.com/todo', {
+    await fetch(baseUrl + '/todo', {
       method: 'PUT',
       body: JSON.stringify({id: todo._id, title, description, changeState: false}),
       headers: {'Content-Type': 'application/json'}

@@ -1,5 +1,7 @@
+export const baseUrl = "https://elephant-to-do-back.onrender.com"
+
 export async function getTodo(setTodoArr, username){
-    await fetch('https://elephant-to-do-back2.onrender.com/authtodo', {
+    await fetch(baseUrl + '/authtodo', {
       method: 'POST',
       body: JSON.stringify({username}),
       headers: {'Content-Type': 'application/json'}
@@ -12,7 +14,7 @@ export async function getTodo(setTodoArr, username){
   }
 
   export async function getUser(setUserInfo){
-        await fetch('https://elephant-to-do-back2.onrender.com/profile', {
+        await fetch(baseUrl + '/profile', {
         credentials: 'include'
       }).then(response => {
         response.json().then(info => {
@@ -23,7 +25,7 @@ export async function getTodo(setTodoArr, username){
 }
 
 export async function fetchLogout(){
-  await fetch('https://elephant-to-do-back2.onrender.com/logout', {
+  await fetch(baseUrl + '/logout', {
     method: 'POST',
     credentials: "include"
   })

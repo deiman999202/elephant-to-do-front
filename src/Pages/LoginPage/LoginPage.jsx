@@ -2,7 +2,7 @@ import './LoginPage.scss'
 import { Link, Navigate } from 'react-router-dom'
 import { useState, useContext, useEffect } from 'react'
 import { UserContext } from '../../UserContext'
-import { getUser } from '../../frontBackEndFunctions'
+import { getUser, baseUrl } from '../../frontBackEndFunctions'
 import Password from '../../Components/Password/Password'
 
 
@@ -15,7 +15,7 @@ const LoginPage = () => {
 
   async function login(e){
     e.preventDefault()
-    const response = await fetch('https://elephant-to-do-back2.onrender.com/login', {
+    const response = await fetch(baseUrl + '/login', {
       method: 'POST',
       body: JSON.stringify({email, password}),
       headers: {'Content-Type': 'application/json'},
@@ -26,6 +26,7 @@ const LoginPage = () => {
         setUserInfo(userInfo)
         setLoading(true)
         const userResponse = await getUser(setUserInfo)
+        console.log(userResponse)
         if(userResponse){
           setLoading(false)
           setRedirect(true)

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './RegisterPage.scss'
 import { Link, Navigate } from 'react-router-dom'
 import Password from '../../Components/Password/Password'
+import { baseUrl } from '../../frontBackEndFunctions'
 
 
 const RegisterPage = () => {
@@ -15,7 +16,7 @@ const RegisterPage = () => {
 
   async function signup(e){
     e.preventDefault()
-    await fetch('https://elephant-to-do-back2.onrender.com/signup', {
+    await fetch(baseUrl + '/signup', {
       method: 'POST',
       body: JSON.stringify({email, password, username}),
       headers: {'Content-Type': 'application/json'}

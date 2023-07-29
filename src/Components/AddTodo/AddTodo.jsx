@@ -2,7 +2,7 @@ import {useState, useContext} from 'react'
 import './AddTodo.scss'
 import blackPlusSign from '../../images/black-plus-svgrepo-com.png'
 import AddTodoForm from './AddTodoForm'
-import { getTodo } from '../../frontBackEndFunctions'
+import { getTodo, baseUrl } from '../../frontBackEndFunctions'
 import { TodoContext } from '../../TodoContext'
 
 
@@ -15,7 +15,7 @@ const AddTodo = ({username, setShowEditCloseAdd}) => {
 
     async function addTodo(e){
         e.preventDefault()
-        await fetch('https://elephant-to-do-back.onrender.com/todo', {
+        await fetch(baseUrl + '/todo', {
           method: 'POST',
           body: JSON.stringify({title, description, author: username}),
           headers: {'Content-Type': 'application/json'}

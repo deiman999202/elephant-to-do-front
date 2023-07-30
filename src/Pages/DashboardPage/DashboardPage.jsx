@@ -19,12 +19,21 @@ const DashboardPage = () => {
         return <Navigate to={'/'} />
     }
   return (
+    <>
+    {userInfo
+    ?
     <section>
         <h1>Your dashboard</h1>
         <div className="options">
             <span>If you want to delete you account click here --{'>'} </span> <button onClick={deleteUser} className='orange-btn'>Delete account</button>
         </div>
     </section>
+    :
+    <Navigate to={"/"} />
+    }
+    </>
+   
+   
   )
 }
 

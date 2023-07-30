@@ -8,7 +8,7 @@ import DashboardPage from './Pages/DashboardPage/DashboardPage'
 import { UserContextProvider } from './UserContext'
 import { TodoContextProvider } from './TodoContext'
 
-const App = () => {  
+const App = () => {
   return (
     <UserContextProvider>
       <TodoContextProvider>

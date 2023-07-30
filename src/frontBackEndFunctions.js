@@ -1,4 +1,4 @@
-
+import { Navigate } from "react-router-dom"
 
 export async function getTodo(setTodoArr, username){
     await fetch(process.env.REACT_APP_BASEURL + '/authtodo', {
@@ -22,6 +22,8 @@ export async function getTodo(setTodoArr, username){
         response.json().then(info => {
           setUserInfo(info.userDoc)
         })
+      }).catch(() => {
+        return 0
       })
     return "okay"
 }
@@ -31,4 +33,5 @@ export async function fetchLogout(){
     method: 'POST',
     credentials: "include"
   })
+  return <Navigate to={'/'} />
 }

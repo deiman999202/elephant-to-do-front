@@ -1,0 +1,14 @@
+@use "../../Global.scss";
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: Global.$unit-background;
+    h4{
+        text-align: center;
+    }
+    a{
+        text-decoration: underline;
+    }
+}

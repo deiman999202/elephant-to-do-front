@@ -22,10 +22,18 @@ const LoginPage = () => {
       headers: {'Content-Type': 'application/json'},
       credentials: 'include'
     })
+    if(response.status === 404){
+      alert("No such user")
+      return
+    }
+    if (response.status === 400){
+      alert("Wrong password")
+      return
+    }
     if (response.ok){
       response.json().then(async (userInfo) => {
-        const token = userInfo; // Replace 'your_token_here' with the actual token value
-        Cookies.set('token', token, { expires: 1 }); // 'token' is the cookie name, and { expires: 7 } means the cookie will expire after 7 days
+        const token = userInfo; 
+        Cookies.set('token', token, { expires: 1 }); 
         const myToken = Cookies.get()
         setLoading(true)
         const userResponse = await getUser(setUserInfo, myToken.token)
@@ -33,7 +41,6 @@ const LoginPage = () => {
           setLoading(false)
           setRedirect(true)
         }
-        
       })
     }
   }

@@ -52,7 +52,7 @@ const Header = () => {
         <label htmlFor="toggler"><img className="burger-nav" src={burgerNav} alt="burger" /></label>
         <div className="nav-options">
           <AddTodo setTodoArr={setTodoArr} username={username} />
-          <span className="logged-user"><p className="author">{username.split("")[0] + username.split("")[1]}</p></span>
+          <Link to={'/dashboard'} className="logged-user"><span className="author">{username.split("")[0] + username.split("")[1]}</span></Link>
           <a className="logout" onClick={logout}>Logout</a>
         </div>
       </div>)

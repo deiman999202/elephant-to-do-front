@@ -1,0 +1,21 @@
+@use "../../Global.scss";
+
+section{
+    width: 70%;
+    height: 90%;
+    border: 5px solid Global.$main-color;
+    margin: 0 auto;
+
+    h1{
+        text-align: center;
+    }
+
+    .options{
+        padding: 2rem;
+        text-align: center;
+        span{
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+    }
+}

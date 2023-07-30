@@ -1,6 +1,7 @@
 import './LoginPage.scss'
 import { Link, Navigate } from 'react-router-dom'
 import { useState, useContext, useEffect } from 'react'
+import Cookies from 'js-cookie';
 import { UserContext } from '../../UserContext'
 import { getUser, baseUrl } from '../../frontBackEndFunctions'
 import Password from '../../Components/Password/Password'
@@ -11,7 +12,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("")
   const [redirect, setRedirect] = useState(false)
   const [loading, setLoading] = useState(false)
-  const {userInfo, setUserInfo} = useContext(UserContext)
+  const {setUserInfo} = useContext(UserContext)
 
   async function login(e){
     e.preventDefault()
@@ -23,11 +24,13 @@ const LoginPage = () => {
     })
     if (response.ok){
       response.json().then(async (userInfo) => {
-        setUserInfo(userInfo)
+        const token = userInfo; // Replace 'your_token_here' with the actual token value
+        Cookies.set('token', token, { expires: 1 }); // 'token' is the cookie name, and { expires: 7 } means the cookie will expire after 7 days
+        const myToken = Cookies.get()
         setLoading(true)
-        const userResponse = await getUser(setUserInfo)
-        console.log(userResponse)
+        const userResponse = await getUser(setUserInfo, myToken.token)
         if(userResponse){
+          console.log(userInfo)
           setLoading(false)
           setRedirect(true)
         }

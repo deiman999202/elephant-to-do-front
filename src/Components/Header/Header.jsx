@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useLocation } from 'react-router-dom'
+import Cookies from 'js-cookie';
 import { UserContext } from "../../UserContext"
 import { TodoContext } from "../../TodoContext"
 import { getUser, fetchLogout } from "../../frontBackEndFunctions"
@@ -15,11 +16,11 @@ const Header = () => {
   const [loading, setLoading] = useState(false)
   let {pathname} = useLocation()
 
-
   useEffect(() => {
     if(pathname !== "/signup" || pathname !== "/login"){
+        const myToken = Cookies.get()
         setLoading(true)
-        getUser(setUserInfo)
+        getUser(setUserInfo, myToken.token)
         setLoading(false)
     }
   }, [])

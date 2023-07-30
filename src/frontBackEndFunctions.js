@@ -1,4 +1,6 @@
-export const baseUrl = "https://elephant-to-do-back.onrender.com"
+export const baseUrl = "http://localhost:5000"
+
+//"https://elephant-to-do-back.onrender.com"
 
 export async function getTodo(setTodoArr, username){
     await fetch(baseUrl + '/authtodo', {
@@ -13,12 +15,14 @@ export async function getTodo(setTodoArr, username){
     return "okay"
   }
 
-  export async function getUser(setUserInfo){
+  export async function getUser(setUserInfo, token = ""){
         await fetch(baseUrl + '/profile', {
-        credentials: 'include'
+        method: 'POST',
+        body: JSON.stringify({token}),
+        headers: {'Content-Type': 'application/json'}
       }).then(response => {
         response.json().then(info => {
-          setUserInfo(info)
+          setUserInfo(info.userDoc)
         })
       })
     return "okay"

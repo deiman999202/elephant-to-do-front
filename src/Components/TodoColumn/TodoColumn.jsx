@@ -5,7 +5,7 @@ import { getTodo } from '../../frontBackEndFunctions'
 import TodoUnit from './TodoUnit'
 import { TodoContext } from '../../TodoContext'
 import arrowIcon from "../../images/arrow-down-svgrepo-com.png"
-import { baseUrl } from '../../frontBackEndFunctions'
+
 
 const TodoColumn = ({username, isLong}) => {
 
@@ -15,7 +15,7 @@ const TodoColumn = ({username, isLong}) => {
   const [showUndoneTodo, setShowUndoneTodo] = useState(false)
 
   async function changeChecked({_id, title, description}){
-    await fetch(baseUrl + '/todo', {
+    await fetch(process.env.REACT_APP_BASEURL + '/todo', {
       method: 'PUT',
       body: JSON.stringify({id: _id, title, description, changeState: true}),
       headers: {'Content-Type': 'application/json'}

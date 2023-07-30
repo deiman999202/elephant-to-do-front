@@ -16,7 +16,7 @@ const RegisterPage = () => {
 
   async function signup(e){
     e.preventDefault()
-    await fetch(baseUrl + '/signup', {
+    await fetch(process.env.REACT_APP_BASEURL + '/signup', {
       method: 'POST',
       body: JSON.stringify({email, password, username}),
       headers: {'Content-Type': 'application/json'}

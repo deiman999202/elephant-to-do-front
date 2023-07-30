@@ -17,7 +17,7 @@ const TodoUnit = ({todo, changeChecked, isChecked, noDescription, username, setS
   const {setTodoArr} = useContext(TodoContext)
 
   async function deleteTodo(id){
-    await fetch(baseUrl + '/todo', {
+    await fetch(process.env.REACT_APP_BASEURL + '/todo', {
       method: "DELETE",
       body: JSON.stringify({id}),
       headers: {'Content-Type': 'application/json'}
@@ -27,7 +27,7 @@ const TodoUnit = ({todo, changeChecked, isChecked, noDescription, username, setS
 
   async function editTodo(e){
     e.preventDefault()
-    await fetch(baseUrl + '/todo', {
+    await fetch(process.env.REACT_APP_BASEURL + '/todo', {
       method: 'PUT',
       body: JSON.stringify({id: todo._id, title, description, changeState: false}),
       headers: {'Content-Type': 'application/json'}

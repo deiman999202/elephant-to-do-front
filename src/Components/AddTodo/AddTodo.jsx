@@ -15,7 +15,7 @@ const AddTodo = ({username, setShowEditCloseAdd}) => {
 
     async function addTodo(e){
         e.preventDefault()
-        await fetch(baseUrl + '/todo', {
+        await fetch(process.env.REACT_APP_BASEURL + '/todo', {
           method: 'POST',
           body: JSON.stringify({title, description, author: username}),
           headers: {'Content-Type': 'application/json'}

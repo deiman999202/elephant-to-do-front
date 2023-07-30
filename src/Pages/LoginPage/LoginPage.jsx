@@ -16,7 +16,7 @@ const LoginPage = () => {
 
   async function login(e){
     e.preventDefault()
-    const response = await fetch(baseUrl + '/login', {
+    const response = await fetch(process.env.REACT_APP_BASEURL + '/login', {
       method: 'POST',
       body: JSON.stringify({email, password}),
       headers: {'Content-Type': 'application/json'},
@@ -30,7 +30,6 @@ const LoginPage = () => {
         setLoading(true)
         const userResponse = await getUser(setUserInfo, myToken.token)
         if(userResponse){
-          console.log(userInfo)
           setLoading(false)
           setRedirect(true)
         }

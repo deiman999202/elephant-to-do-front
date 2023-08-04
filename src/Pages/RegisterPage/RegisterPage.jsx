@@ -39,7 +39,6 @@ const RegisterPage = () => {
         <label className='input-name' htmlFor='email'>Email</label> <input id='email' type="email"  placeholder='Enter your email' required value={email} onChange={e => setEmail(e.target.value)}/>
         <Password password={password} setPassword={setPassword}/>
         <button className='orange-btn register'>Sign up</button>
-        <small>By continuing with Google, Apple, or Email, you agree to Elephant To-do's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a> .</small>
         <small className="change-page">Already signed up? <Link to={'/login'}>Go to login</Link></small>
       </form>
       <img className='side-elephant' src="https://cdn.pixabay.com/photo/2016/11/02/14/12/elephant-1791663_960_720.png" alt="elephant" />

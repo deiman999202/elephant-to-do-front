@@ -21,12 +21,12 @@ const RegisterPage = () => {
       body: JSON.stringify({email, password, username}),
       headers: {'Content-Type': 'application/json'}
     })
-
+    alert("Congratulations. You've created your account. Now it's time to login using your email and password.")
     setRedirect(true)
   }
 
   if(redirect){
-    return <Navigate to={'/'} />
+    return <Navigate to={'/login'} />
   }
 
  

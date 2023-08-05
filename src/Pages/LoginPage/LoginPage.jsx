@@ -1,9 +1,9 @@
 import './LoginPage.scss'
 import { Link, Navigate } from 'react-router-dom'
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext } from 'react'
 import Cookies from 'js-cookie';
 import { UserContext } from '../../UserContext'
-import { getUser, baseUrl } from '../../frontBackEndFunctions'
+import { getUser } from '../../frontBackEndFunctions'
 import Password from '../../Components/Password/Password'
 
 

@@ -54,7 +54,7 @@ const Header = () => {
         <div className="nav-options">
           <AddTodo setTodoArr={setTodoArr} username={username} />
           <Link to={'/dashboard'} className="logged-user"><span className="author">{username.split("")[0] + username.split("")[1]}</span></Link>
-          <a className="logout" onClick={logout}>Logout</a>
+          <button className="logout" onClick={logout}>Logout</button>
         </div>
       </div>)
       :

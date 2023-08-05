@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './RegisterPage.scss'
 import { Link, Navigate } from 'react-router-dom'
 import Password from '../../Components/Password/Password'
-import { baseUrl } from '../../frontBackEndFunctions'
+
 
 
 const RegisterPage = () => {
